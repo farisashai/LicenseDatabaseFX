@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="905.0" prefWidth="1450.0" style="-fx-background-color: linear-gradient(to bottom, #d69e7c 0%,#a36d56 100%);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projDRIVERSLICENSE.GUI.Controller">
+   <children>
+       <AnchorPane fx:id="home" prefHeight="905.0" prefWidth="1450.0" style="-fx-background-color: rgba(0,0,0,0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+              <Label alignment="CENTER" layoutX="242.0" layoutY="121.0" prefHeight="214.0" prefWidth="966.0" text="DRIVERS LICENSE DATABASE" textFill="WHITE">
+                  <font>
+                      <Font name="Hiragino Sans W1" size="62.0" />
+                  </font>
+              </Label>
+              <ImageView fx:id="start" fitHeight="126.0" fitWidth="100.0" layoutX="676.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                      <Glow level="1.0" />
+                  </effect>
+                 <image>
+                     <Image url="@down.png" />
+                 </image>
+              </ImageView>
+          </children>
+       </AnchorPane>
+       <AnchorPane fx:id="main" prefHeight="905.0" prefWidth="1450.0" style="-fx-background-color: rgba(0,0,0,0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+              <HBox layoutX="10.0" layoutY="185.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="1430.0" style="-fx-background-color: rgba(255,255,255,0.8);">
+                 <children>
+                     <Label alignment="CENTER" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="FILTER">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="19.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" prefHeight="88.0" prefWidth="111.0" text="GENDER">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="15.0" />
+                         </font>
+                     </Label>
+                     <ComboBox fx:id="genderFilter" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                     <Label alignment="CENTER" layoutX="119.0" layoutY="10.0" prefHeight="45.0" prefWidth="79.0" text="HAIR">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="15.0" />
+                         </font>
+                     </Label>
+                     <ComboBox fx:id="hairFilter" layoutX="130.0" layoutY="10.0" prefHeight="45.0" prefWidth="79.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                     <Label alignment="CENTER" layoutX="298.0" layoutY="10.0" prefHeight="45.0" prefWidth="80.0" text="EYE">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="15.0" />
+                         </font>
+                     </Label>
+                     <ComboBox fx:id="eyeFilter" layoutX="250.0" layoutY="10.0" prefHeight="45.0" prefWidth="91.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                     <Label alignment="CENTER" layoutX="438.0" layoutY="10.0" prefHeight="45.0" prefWidth="99.0" text="DONOR">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="15.0" />
+                         </font>
+                     </Label>
+                     <ComboBox fx:id="donorFilter" layoutX="370.0" layoutY="10.0" prefHeight="45.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <Button fx:id="reset" mnemonicParsing="false" prefHeight="36.0" prefWidth="118.0" style="-fx-background-color: rgb(220,220,220); -fx-background-radius: 0;" text="RESET FILTERS" translateY="4.0" />
+                     <Label prefHeight="45.0" prefWidth="33.0" text=" " />
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="SEARCH">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="19.0" />
+                         </font>
+                     </Label>
+                     <ComboBox fx:id="searchType" layoutX="130.0" layoutY="10.0" prefHeight="45.0" prefWidth="148.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                     <TextField fx:id="searchBar" focusTraversable="false" prefHeight="45.0" prefWidth="158.0" style="-fx-background-radius: 0; -fx-background-color: white;" />
+                 </children>
+              </HBox>
+              <Label alignment="CENTER" prefHeight="170.0" prefWidth="1450.0" style="-fx-background-color: rgba(255,255,255,0.3);" text="DRIVERS LICENSE DATABASE" textFill="WHITE">
+                  <font>
+                      <Font name="Hiragino Sans W1" size="52.0" />
+                  </font>
+              </Label>
+              <TableView fx:id="table" layoutX="10.0" layoutY="240.0" prefHeight="655.0" prefWidth="1020.0" style="-fx-background-color: rgba(255,255,255,0.7);" tableMenuButtonVisible="true">
+                  <columns>
+                      <TableColumn fx:id="nameCol" prefWidth="75.0" text="FIRST NAME" />
+                      <TableColumn fx:id="lastCol" prefWidth="75.0" text="LAST NAME" />
+                      <TableColumn fx:id="addressCol" prefWidth="75.0" text="ADDRESS" />
+                      <TableColumn fx:id="cityCol" prefWidth="75.0" text="CITY" />
+                      <TableColumn fx:id="stateCol" prefWidth="75.0" text="STATE" />
+                      <TableColumn fx:id="zipCol" prefWidth="75.0" text="ZIP" />
+                      <TableColumn fx:id="genderCol" prefWidth="75.0" text="GENDER" />
+                      <TableColumn fx:id="hairCol" prefWidth="75.0" text="HAIR" />
+                      <TableColumn fx:id="eyeCol" prefWidth="75.0" text="EYE" />
+                      <TableColumn fx:id="heightCol" prefWidth="75.0" text="HEIGHT" />
+                      <TableColumn fx:id="weightCol" prefWidth="75.0" text="WEIGHT" />
+                      <TableColumn fx:id="issuedCol" prefWidth="75.0" text="ISSUED" />
+                      <TableColumn fx:id="expiresCol" prefWidth="75.0" text="EXPIRES" />
+                      <TableColumn fx:id="birthCol" prefWidth="75.0" text="BIRTH" />
+                      <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="donorCol" prefWidth="75.0" text="DONOR" />
+                  </columns>
+                  <columnResizePolicy>
+                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+              </TableView>
+              <GridPane layoutX="1040.0" layoutY="240.0" prefHeight="655.0" prefWidth="400.0" style="-fx-background-color: rgba(255,255,255,0.8);">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints maxHeight="74.57620239257812" minHeight="10.0" prefHeight="60.91448974609375" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="41.39776611328125" minHeight="10.0" prefHeight="27.08551025390625" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="50.843841552734375" minHeight="10.0" prefHeight="41.1961669921875" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="42.8038330078125" minHeight="10.0" prefHeight="42.8038330078125" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="54.33673095703125" vgrow="ALWAYS" />
+                      <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="54.33673095703125" vgrow="ALWAYS" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label alignment="CENTER" prefHeight="170.0" prefWidth="1450.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="INFO" GridPane.columnSpan="2">
+                         <font>
+                             <Font name="Hiragino Sans W1" size="43.0" />
+                         </font>
+                     </Label>
+                     <ImageView fx:id="licensePreview" fitHeight="176.0" fitWidth="280.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" scaleX="0.85" scaleY="0.85" translateX="60.0" GridPane.columnSpan="2" GridPane.rowIndex="13" GridPane.rowSpan="3" />
+                     <Label alignment="CENTER" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" text="NAME" GridPane.rowIndex="1">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="74.0" prefHeight="70.0" prefWidth="239.0" text="ADDRESS" GridPane.rowIndex="2">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="105.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" text="GENDER" GridPane.rowIndex="3">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="138.0" prefHeight="70.0" prefWidth="239.0" text="HAIR COLOR" GridPane.rowIndex="4">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" text="EYE COLOR" GridPane.rowIndex="5">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="204.0" prefHeight="70.0" prefWidth="239.0" text="HEIGHT" GridPane.rowIndex="6">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="237.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" text="WEIGHT" GridPane.rowIndex="7">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="269.0" prefHeight="70.0" prefWidth="239.0" text="ISSUE DATE" GridPane.rowIndex="8">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="301.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" text="EXPIRATION DATE" GridPane.rowIndex="9">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="333.0" prefHeight="70.0" prefWidth="239.0" text="DATE OF BIRTH" GridPane.rowIndex="10">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="365.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" text="ID" GridPane.rowIndex="11">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="397.0" prefHeight="70.0" prefWidth="239.0" text="DONOR" GridPane.rowIndex="12">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </Label>
+                     <Label fx:id="nameInfo" alignment="CENTER" layoutX="10.0" layoutY="75.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <Label fx:id="addressInfo" alignment="CENTER" layoutX="10.0" layoutY="107.0" prefHeight="70.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     <Label fx:id="genderInfo" alignment="CENTER" layoutX="10.0" layoutY="158.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <Label fx:id="hairInfo" alignment="CENTER" layoutX="10.0" layoutY="187.0" prefHeight="70.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     <Label fx:id="eyeInfo" alignment="CENTER" layoutX="10.0" layoutY="221.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     <Label fx:id="heightInfo" alignment="CENTER" layoutX="10.0" layoutY="255.0" prefHeight="70.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     <Label fx:id="weightInfo" alignment="CENTER" layoutX="10.0" layoutY="288.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     <Label fx:id="issueInfo" alignment="CENTER" layoutX="10.0" layoutY="321.0" prefHeight="70.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     <Label fx:id="expireInfo" alignment="CENTER" layoutX="10.0" layoutY="354.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                     <Label fx:id="dobInfo" alignment="CENTER" layoutX="10.0" layoutY="387.0" prefHeight="70.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                     <Label fx:id="idInfo" alignment="CENTER" layoutX="10.0" layoutY="420.0" prefHeight="70.0" prefWidth="239.0" style="-fx-background-color: rgb(240,200,200);" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                     <Label fx:id="donorInfo" alignment="CENTER" layoutX="10.0" layoutY="453.0" prefHeight="70.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                 </children>
+              </GridPane>
+              <ImageView fx:id="car" fitHeight="150.0" fitWidth="200.0" layoutX="1470.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                  <rotationAxis>
+                      <Point3D y="75.0" z="1.0" />
+                  </rotationAxis>
+                 <image>
+                     <Image url="@car.png" />
+                 </image>
+              </ImageView>
+          </children>
+       </AnchorPane>
+       <AnchorPane fx:id="dark" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+       <AnchorPane fx:id="searchResults" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(255,255,255);" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="150.0">
+          <children>
+              <Label layoutX="253.0" layoutY="51.0" text="SEARCH RESULTS">
+                  <font>
+                      <Font name="Hiragino Sans W1" size="30.0" />
+                  </font>
+              </Label>
+              <ScrollPane fx:id="scrollResults" hbarPolicy="NEVER" layoutX="41.0" layoutY="106.0" prefHeight="460.0" prefWidth="672.0" />
+
+
+              <Button fx:id="cancel" alignment="CENTER" layoutX="640.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: rgb(205,205,205); -fx-background-radius: 0;" text="CANCEL" />
+          </children>
+       </AnchorPane>
+   </children>
+</AnchorPane>
